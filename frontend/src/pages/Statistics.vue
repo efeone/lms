@@ -68,6 +68,31 @@
 						}"
 					/>
 				</div>
+				<div class="p-5 border rounded-md">
+					<AxisChart
+						v-if="finalExamPassPercentage.data"
+						:config="{
+							data: finalExamPassPercentage.data,
+							title: 'Final Exam Pass Percentage',
+							type: 'bar',
+							xAxis: {
+								key: 'course',
+								title: 'Course',
+							},
+							yAxis: {
+								key: 'pass_percentage',
+								title: 'Pass Percentage',
+							},
+							series: [
+								{
+									key: 'pass_percentage',
+									title: 'Pass Percentage',
+									color: 'green',
+								},
+							],
+						}"
+					/>
+				</div>
 				<div class="border rounded-md min-h-72">
 					<AxisChart
 						v-if="enrollmentChart.data"
@@ -218,6 +243,12 @@ const courseCompletion = createResource({
 	url: 'lms.lms.utils.get_course_completion_data',
 	auto: true,
 	cache: ['courseCompletion'],
+})
+
+const finalExamPassPercentage = createResource({
+	url: 'fusion_payroll.level_up.api.api.get_exam_status',
+	auto: true,
+	cache: ['finalExamPassPercentage'],
 })
 
 usePageMeta(() => {

@@ -404,6 +404,12 @@ export function getUserTimezone() {
 export function getSidebarLinks() {
 	return [
 		{
+			label: 'Categories',
+			icon: 'Folder',
+			to: 'Categories',
+			activeFor: ['Categories'],
+		},
+		{
 			label: 'Courses',
 			icon: 'BookOpen',
 			to: 'Courses',

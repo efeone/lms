@@ -276,12 +276,6 @@ const tabsStructure = computed(() => {
 					template: markRaw(Badges),
 				},
 				{
-					label: 'Categories',
-					description: 'Double click to edit the category',
-					icon: 'Network',
-					template: markRaw(Categories),
-				},
-				{
 					label: 'Email Templates',
 					description: 'Manage the email templates for your learning system',
 					icon: 'MailPlus',
@@ -327,6 +321,11 @@ const tabsStructure = computed(() => {
 						{
 							label: 'Courses',
 							name: 'courses',
+							type: 'checkbox',
+						},
+						{
+							label: 'Categories',
+							name: 'categories',
 							type: 'checkbox',
 						},
 						{

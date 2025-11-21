@@ -35,6 +35,7 @@ declare module 'vue' {
     BrandSettings: typeof import('./src/components/Settings/BrandSettings.vue')['default']
     BulkCertificates: typeof import('./src/components/Modals/BulkCertificates.vue')['default']
     Categories: typeof import('./src/components/Settings/Categories.vue')['default']
+    CategoryCard: typeof import('./src/components/CategoryCard.vue')['default']
     CertificationLinks: typeof import('./src/components/CertificationLinks.vue')['default']
     ChapterModal: typeof import('./src/components/Modals/ChapterModal.vue')['default']
     ChildTable: typeof import('./src/components/Controls/ChildTable.vue')['default']

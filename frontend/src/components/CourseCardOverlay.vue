@@ -96,8 +96,20 @@
 				>
 					<template #prefix>
 						<TrendingUp class="size-4 stroke-1.5" />
-						{{ __('Progress Summary') }}
 					</template>
+					{{ __('Progress Summary') }}
+				</Button>
+				<Button
+					v-if="isLMSAdmin"
+					@click="$emit('openBulkEnroll')"
+					variant="subtle"
+					class="w-full mt-2"
+					size="md"
+				>
+					<template #prefix>
+						<Users class="size-4 stroke-1.5" />
+					</template>
+					{{ __('Enroll Students') }}
 				</Button>
 				<router-link
 					v-if="user?.data?.is_moderator || is_instructor()"
@@ -204,7 +216,13 @@ const props = defineProps({
 		type: Object,
 		default: null,
 	},
+	isLMSAdmin: {
+		type: Boolean,
+		default: false,
+	},
 })
+
+defineEmits(['openBulkEnroll'])
 
 const video_link = computed(() => {
 	if (props.course.data.video_link) {

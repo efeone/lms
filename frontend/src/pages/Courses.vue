@@ -123,6 +123,12 @@ onMounted(() => {
 	]
 })
 
+watch(() => router.currentRoute.value.query, (query) => {
+  if (query.category) {
+    currentCategory.value = query.category;
+  }
+});
+
 const setFiltersFromQuery = () => {
 	let queries = new URLSearchParams(location.search)
 	title.value = queries.get('title') || ''
@@ -329,7 +335,11 @@ const courseTabs = computed(() => {
 })
 
 const breadcrumbs = computed(() => [
-	{
+  {
+    label: 'Categories',
+    route: { name: 'Categories' },
+  },
+  {
 		label: __('Courses'),
 		route: { name: 'Courses' },
 	},
